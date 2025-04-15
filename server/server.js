@@ -9,6 +9,9 @@ const app = express();
 // DB CONNECTION
 connectDB();
 
+const cors = require("cors");
+app.use(cors({ allowOrigin: "*" }));
+
 // Body-parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

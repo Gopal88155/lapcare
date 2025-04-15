@@ -1,4 +1,6 @@
 import axios from "axios";
+import { ApiUrl } from "../../config";
+
 
 const fetchComplaints = async (token) => {
   const options = {
@@ -7,7 +9,7 @@ const fetchComplaints = async (token) => {
     },
   };
 
-  const response = await axios.get("/api/complaint", options);
+  const response = await axios.get(`${ApiUrl}/api/user/login`, options);
   return response.data;
 };
 
@@ -18,7 +20,7 @@ const fetchComplaint = async (id, token) => {
     },
   };
 
-  const response = await axios.get("/api/complaint/" + id, options);
+  const response = await axios.get(`${ApiUrl}/api/complaint/` + id, options);
   return response.data;
 };
 
@@ -29,7 +31,7 @@ const addComplaint = async (formData, token) => {
     },
   };
 
-  const response = await axios.post("/api/complaint/", formData, options);
+  const response = await axios.post(`${ApiUrl}/api/complaint/`, formData, options);
   return response.data;
 };
 
@@ -41,7 +43,7 @@ const updateComplaint = async (id, token) => {
   };
 
   const response = await axios.put(
-    "/api/complaint/" + id,
+    `${ApiUrl}/api/complaint/` + id,
     { status: "close" },
     options
   );
